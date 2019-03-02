@@ -14,5 +14,8 @@ export default lines => {
     const rover = createRover(Number.parseInt(x), Number.parseInt(y), orientation);
     // console.log(rover);
 
+    const instructions = [...lines[2]];
+    console.log(instructions);
+
     return result;
 };
