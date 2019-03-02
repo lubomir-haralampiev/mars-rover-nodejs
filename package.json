@@ -4,6 +4,7 @@
   "description": "This is my solution for the mars rover coding challenge in node js.",
   "main": "index.js",
   "scripts": {
+    "start": "node --require @babel/register index.js",
     "test": "mocha --require @babel/register src/**/*.test.js"
   },
   "repository": {
