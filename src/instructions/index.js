@@ -11,7 +11,7 @@ const EAST = 'E';
 
 // @TODO - extract in an own module
 const transitions = {
-    // Another solution(maybe a more elegant one) is to convert the strings to degrees, 
+    // Another solution(maybe a more elegant one) is to convert the strings to degrees,
     // calculate the new degrees and convert them back to strings. This way we could support not only 90 degrees.
     // Keepit it simpler for now and define all the transitions as an object.
     [TURN_LEFT]: {
@@ -36,22 +36,33 @@ const turn = (direction, rover) => {
     return createRover(rover.x, rover.y, newOrientation);
 };
 
+
+const ensureMovementIsPossible = (rover, plateau) => {
+    if (plateau.rovers.find(existingRover => existingRover.x === rover.x && existingRover.y === rover.y)) {
+        throw Error('At this position is already another rover');
+    }
+
+    if (rover.x > plateau.sizeX || rover.y > plateau.sizeY) {
+        throw Error('Reached the end of the plateau, can not move forward');
+    }
+
+    return rover;
+};
+
 // @TODO - extract in an own module
-const ensureMovementIsPosible = (rover, plateau) => rover; // @TODO implement
 const move = (rover, plateau) => {
     switch (rover.orientation) {
         case NORTH:
-            return ensureMovementIsPosible(createRover(rover.x, rover.y + 1, rover.orientation), plateau);
+            return ensureMovementIsPossible(createRover(rover.x, rover.y + 1, rover.orientation), plateau);
         case WEST:
-            return ensureMovementIsPosible(createRover(rover.x -1, rover.y, rover.orientation), plateau);
+            return ensureMovementIsPossible(createRover(rover.x -1, rover.y, rover.orientation), plateau);
         case SOUTH:
-            return ensureMovementIsPosible(createRover(rover.x, rover.y - 1, rover.orientation), plateau);
+            return ensureMovementIsPossible(createRover(rover.x, rover.y - 1, rover.orientation), plateau);
         case EAST:
-            return ensureMovementIsPosible(createRover(rover.x + 1, rover.y, rover.orientation), plateau);
+            return ensureMovementIsPossible(createRover(rover.x + 1, rover.y, rover.orientation), plateau);
         default:
             throw Error(`Can not move the rover because the orientation "${rover.orientation}" is unknown`);
-            break;
-    };
+    }
 };
 
 export default (instruction, rover, plateau) => {
@@ -64,6 +75,5 @@ export default (instruction, rover, plateau) => {
             return move(rover, plateau);
         default:
             throw Error(`The instruction "${instruction}" is not supported`);
-            break;
     }
 };

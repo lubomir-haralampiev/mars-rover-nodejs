@@ -13,3 +13,9 @@ export const createPlateau = (sizeX, sizeY) => {
         rovers: [],
     }
 };
+
+export const addToPlateau = (rover, plateau) => {
+    plateau.rovers.push(rover);
+
+    return plateau;
+};

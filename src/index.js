@@ -1,5 +1,5 @@
 import {ensureIsArray, ensureArrayHasOddLength} from './validation';
-import {createPlateau} from './plateau';
+import {createPlateau, addToPlateau} from './plateau';
 import {createRover} from './rover';
 import processInstruction from './instructions';
 
@@ -20,7 +20,7 @@ export default lines => {
 
     const roverLines = lines.slice(1);
     roverLines.forEach((roverLine, index) => {
-        // after creating the plateau the even lines are the rovers and the odd ones the instructions
+        // After creating the plateau the even lines are the rovers and the odd ones the instructions.
         // javascript doesn't have tuples out of the box, the only solution I saw, which iterates only once is forEach
         if (index % 2 !== 0) {
             return;
@@ -35,6 +35,11 @@ export default lines => {
         const instructions = [...roverLines[index + 1]];
         const processedRover = instructions
             .reduce((currentRover, instruction) => processInstruction(instruction, currentRover, plateau), rover);
+        // As the rovers don't run concurrently it is possible
+        // to save the rovers position after processing all the instructions.
+        // If the rover should be able to run concurrently,
+        // we have to save their position on the plateau after every instruction.
+        addToPlateau(processedRover, plateau);
 
         result.push(formatOutput(processedRover));
     });
