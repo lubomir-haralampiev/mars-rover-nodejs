@@ -16,7 +16,7 @@ export default lines => {
         throw Error('Missing data for the plateau');
     }
     const [sizeX, sizeY] = lines[0].split(' ');
-    const plateau = createPlateau(Number.parseInt(sizeX), Number.parseInt(sizeY));
+    const plateau = createPlateau(Number.parseInt(sizeX, 10), Number.parseInt(sizeY, 10));
 
     const roverLines = lines.slice(1);
     roverLines.forEach((roverLine, index) => {
@@ -27,7 +27,7 @@ export default lines => {
         }
 
         const [x, y, orientation] = roverLine.split(' ');
-        const rover = createRover(Number.parseInt(x), Number.parseInt(y), orientation);
+        const rover = createRover(Number.parseInt(x, 10), Number.parseInt(y, 10), orientation);
 
         if (!roverLines[index + 1]) {
             throw Error('No instructions found for the rover');

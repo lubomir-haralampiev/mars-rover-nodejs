@@ -11,7 +11,7 @@ export const createPlateau = (sizeX, sizeY) => {
         sizeX,
         sizeY,
         rovers: [],
-    }
+    };
 };
 
 export const addToPlateau = (rover, plateau) => {

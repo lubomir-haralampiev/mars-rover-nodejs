@@ -1,7 +1,5 @@
-import {createPlateau} from './index';
+// import {createPlateau} from './index';
 
 describe('plateau', () => {
-    it('should be implemented', () => {
-        console.log(process.env);
-    });
+    it('should be implemented');
 });

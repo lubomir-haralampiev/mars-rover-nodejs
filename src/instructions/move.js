@@ -1,5 +1,10 @@
 import {createRover} from '../rover';
-import {NORTH, WEST, SOUTH, EAST} from './constants';
+import {
+    NORTH,
+    WEST,
+    SOUTH,
+    EAST,
+} from './constants';
 
 const ensureMovementIsPossible = (rover, plateau) => {
     if (plateau.rovers.find(existingRover => existingRover.x === rover.x && existingRover.y === rover.y)) {
@@ -18,7 +23,7 @@ export default (rover, plateau) => {
         case NORTH:
             return ensureMovementIsPossible(createRover(rover.x, rover.y + 1, rover.orientation), plateau);
         case WEST:
-            return ensureMovementIsPossible(createRover(rover.x -1, rover.y, rover.orientation), plateau);
+            return ensureMovementIsPossible(createRover(rover.x - 1, rover.y, rover.orientation), plateau);
         case SOUTH:
             return ensureMovementIsPossible(createRover(rover.x, rover.y - 1, rover.orientation), plateau);
         case EAST:
