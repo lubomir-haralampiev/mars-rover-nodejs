@@ -13,3 +13,11 @@ export const ensureIsArray = value => {
 
     return;
 };
+
+export const ensureArrayHasOddLength = array => {
+    if (!Array.isArray(array) || array.length % 2 === 0) {
+        throw Error('The length of the array has to be an odd number');
+    }
+
+    return;
+};
