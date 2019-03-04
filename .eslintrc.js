@@ -36,4 +36,17 @@ module.exports = {
         ],
         'import/prefer-default-export': 'warn',
     },
+    overrides: {
+        files: ['*.test.js'],
+        rules: {
+            // because of babel-plugin-rewire
+            'import/named': 'off',
+            'no-underscore-dangle': [
+                'error',
+                {
+                    allow: ['__Rewire__', '__ResetDependency__'],
+                },
+            ],
+        },
+    },
 };
