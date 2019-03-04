@@ -34,12 +34,6 @@ module.exports = {
             'as-needed',
             {requireForBlockBody: false},
         ],
-        'object-curly-newline': ['error', {
-            ObjectExpression: {multiline: true, minProperties: 4},
-            ObjectPattern: {multiline: true, minProperties: 4},
-            ImportDeclaration: {multiline: true, minProperties: 4},
-            ExportDeclaration: {multiline: true, minProperties: 4},
-        }],
         'import/prefer-default-export': 'warn',
     },
 };
