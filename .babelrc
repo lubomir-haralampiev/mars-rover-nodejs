@@ -1,0 +1,29 @@
+{
+  "presets": [
+    [
+      "@babel/env",
+      {
+        "targets": {
+          "node": "10.15.2"
+        }
+      }
+    ]
+  ],
+  "env": {
+    "test": {
+      "presets": [
+        [
+          "@babel/env",
+          {
+            "targets": {
+              "node": "10.15.2"
+            }
+          }
+        ]
+      ],
+      "plugins": [
+        "rewire"
+      ]
+    }
+  }
+}

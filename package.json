@@ -1,0 +1,35 @@
+{
+  "name": "mars-rover-nodejs",
+  "version": "1.0.0",
+  "description": "This is my solution for the mars rover coding challenge in node js.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --require @babel/register index.js",
+    "test:unit": "export NODE_ENV=test; mocha --require @babel/register src/**/*.test.js src/*.test.js",
+    "test:integration": "export NODE_ENV=test; mocha --require @babel/register test/**/*.test.js",
+    "test": "npm run test:unit && npm run test:integration",
+    "lint": "eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/lubomir_haralampiev/mars-rover-nodejs.git"
+  },
+  "author": "Lubomir Haralapiev <lubomir.haralampiev@gmail.com>",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/lubomir_haralampiev/mars-rover-nodejs#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/register": "^7.0.0",
+    "babel-eslint": "^10.0.1",
+    "babel-plugin-rewire": "^1.2.0",
+    "eslint": "^5.15.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "mocha": "^6.0.2",
+    "sinon": "^7.2.5",
+    "unexpected": "^11.1.1",
+    "unexpected-sinon": "^10.11.1"
+  }
+}
