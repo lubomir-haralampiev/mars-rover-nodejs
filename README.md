@@ -4,11 +4,14 @@ This is my solution for the mars rover coding challenge in node js.
 
 The challenge is taken from https://code.google.com/archive/p/marsrovertechchallenge
 
-### how to run it
+### How to run it
 Requires node js >= 8
-* ```npm ci```
-* ```npm start```
-* to run the tests use ```npm test```
+
+Install the dependencies - ```npm ci```
+
+Run with the data specified in the challenge ```npm start```
+
+To run the tests use ```npm test```
 
 
 ### The Challenge
