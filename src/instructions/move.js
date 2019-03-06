@@ -11,7 +11,7 @@ const ensureMovementIsPossible = (rover, plateau) => {
         throw Error('At this position is already another rover');
     }
 
-    if (rover.x > plateau.sizeX || rover.y > plateau.sizeY) {
+    if (rover.x > plateau.sizeX || rover.y > plateau.sizeY || rover.x < 0 || rover.y < 0) {
         throw Error('Reached the end of the plateau, can not move forward');
     }
 

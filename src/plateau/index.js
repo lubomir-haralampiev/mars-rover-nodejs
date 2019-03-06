@@ -15,6 +15,7 @@ export const createPlateau = (sizeX, sizeY) => {
 };
 
 export const addToPlateau = (rover, plateau) => {
+    // checking for collisions is implemented as responsibility of the "instructions" module
     plateau.rovers.push(rover);
 
     return plateau;
